@@ -10,19 +10,14 @@ import time
 
 #soup = BeautifulSoup(html, "lxml")
 #print("Título de la página:", soup.title.string)
-urls = {
-        'Mercadona':  "https://tienda.mercadona.es/",  
-        'Caprabo': "https://www.capraboacasa.com/",
-        'Dia': "https://www.dia.es/"
-}
-
+URL="https://tienda.mercadona.es/"
 CODIGO_POSTAL = "08001"  # 👉 pon aquí el que quieras
 
 
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=False)  # headless=True = invisible, False = visible
     page = browser.new_page()
-    page.goto(URL1, wait_until="networkidle")
+    page.goto(URL, wait_until="networkidle")
 
     # Espera a que aparezca el cuadro del código postal
     try:
@@ -57,3 +52,4 @@ if precio:
     print("Precio del producto:", precio.get_text(strip=True))
 else:
     print("No se encontró el precio en la página.")
+

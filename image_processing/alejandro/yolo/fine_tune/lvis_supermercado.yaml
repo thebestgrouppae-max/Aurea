@@ -1,0 +1,162 @@
+# LVIS SUBSET - Productos / Hogar / Oficina
+# Ruta base del dataset LVIS en tu máquina
+path: /home/abollao/yolo/fine_tune/datasets/lvis
+
+# Archivos de índice de imágenes (ya proporcionados por LVIS)
+train: train.txt
+val: val.txt
+
+# Listado de clases seleccionadas (LVIS general subset ~50 clases)
+names:
+  0: oil
+  1: vinegar
+  2: salt
+  3: mayonnaise
+  4: ketchup
+  5: mustard
+  6: other_sauces
+  7: water
+  8: energy_drink
+  9: isotonic_drink
+  10: soda
+  11: soft_drink
+  12: tea
+  13: olive
+  14: pickles
+  15: nuts
+  16: chips
+  17: snacks
+  18: rice
+  19: pulses/legumes
+  20: pasta
+  21: sugar
+  22: sweetener
+  23: candy
+  24: jam
+  25: honey
+  26: pap/mash/slurry
+  27: bottle (biberon)
+  28: pacifier
+  29: cologne
+  30: wet wipes
+  31: diapers
+  32: beer
+  33: wine
+  34: sider
+  35: liquor
+  36: cocoa
+  37: coffee
+  38: ground coffee
+  39: coffee beans
+  40: meat
+  41: pork
+  42: chicken meat
+  43: beef
+  44: hamburger
+  45: sausage
+  46: pie
+  47: cereal
+  48: cookie
+  49: bacon
+  50: chorizo
+  51: mortadella
+  52: pate
+  53: cheese
+  54: ice cream
+  55: seafood
+  56: fish
+  57: pizza
+  58: cake
+  59: vegetable
+  60: preserves
+  61: soup
+  62: broth
+  63: tomato sauce
+  64: shampoo
+  65: shower gel
+  66: hair dye
+  67: cotton
+  68: cotton swab
+  69: deodorant
+  70: toothpaste
+  71: toothbrush
+  72: perfume
+  73: bandage
+  74: iodine
+  75: plaster
+  76: banana
+  77: grape
+  78: apple
+  79: pear
+  80: watermelon
+  81: melon
+  82: lemon
+  83: orange
+  84: kiwi
+  85: avocado
+  86: pineapple
+  87: peach
+  88: lettuce
+  89: spinach
+  90: salad
+  91: potato
+  92: onion
+  93: garlic
+  94: tomato
+  95: carrot
+  96: cucumber
+  97: zucchini
+  98: pepper
+  99: mushroom
+  100: eggplant
+  101: broccoli
+  102: leek
+  103: corn
+  104: pumpkin
+  105: egg
+  106: milk
+  107: almond milk
+  108: oat milk
+  109: soy milk
+  110: chocolate milk
+  111: butter
+  112: margarine
+  113: detergent
+  114: fabric softener
+  115: sponge
+  116: soap
+  117: glove
+  118: bleach
+  119: insecticide
+  120: air freshener
+  121: glass cleaner
+  122: napkin
+  123: toilet paper
+  124: broom
+  125: mop
+  126: dustpan
+  127: makeup
+  128: blush
+  129: lipstick
+  130: petroleum jelly
+  131: eyeliner
+  132: brush
+  133: pet food
+  134: pastries
+  135: baked good
+  136: muffin
+  137: croissant
+  138: bread
+  139: tin loaf
+  140: candle
+  141: lasagna
+  142: roast chicken
+  143: tortilla
+  144: nooddles
+  145: gazpacho
+  146: hummus
+  147: yogurt
+  148: jelly
+  149: flan
+  150: custard
+  151: fruit juice

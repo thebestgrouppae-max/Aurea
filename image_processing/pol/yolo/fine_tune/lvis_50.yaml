@@ -1,0 +1,63 @@
+# LVIS SUBSET - Productos / Hogar / Oficina
+# Ruta base del dataset LVIS en tu máquina
+path: /home/abollao/yolo/fine_tune/datasets/lvis
+
+# Archivos de índice de imágenes (ya proporcionados por LVIS)
+train: train.txt
+val: val.txt
+
+# Listado de clases seleccionadas (LVIS general subset ~50 clases)
+names:
+  0: bottle
+  1: can
+  2: jar
+  3: cup
+  4: bowl
+  5: box
+  6: carton
+  7: bag
+  8: food
+  9: drink
+  10: bread
+  11: sandwich
+  12: pizza
+  13: fruit
+  14: vegetable
+  # Mobiliario / Hogar
+  15: chair
+  16: table
+  17: sofa
+  18: bed
+  19: cabinet
+  20: shelf
+  21: refrigerator
+  22: microwave
+  23: stove
+  24: oven
+  # Electronica / Oficina
+  25: laptop
+  26: monitor
+  27: keyboard
+  28: mouse
+  29: phone
+  30: remote
+  31: printer
+  32: tv
+  33: book
+  34: notebook
+  35: paper
+  # Objetos comunes
+  36: backpack
+  37: handbag
+  38: scissors
+  39: pen
+  40: pencil
+  41: fork
+  42: knife
+  43: spoon
+  44: plate
+  45: mug
+  46: broom
+  47: trashcan
+  48: towel
+  49: mirror

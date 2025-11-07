@@ -1,0 +1,4 @@
+imagen,categoria_predicha,confianza
+img2.jpg,a photo of a sofa,0.5143
+img1.jpg,a photo of a chair,0.3348
+img3.jpg,a photo of a laptop,0.3774

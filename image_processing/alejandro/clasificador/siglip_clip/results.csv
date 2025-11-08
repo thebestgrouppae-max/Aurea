@@ -1,4 +1,19 @@
 imagen,categoria_predicha,confianza
-img2.jpg,a photo of a sofa,0.5143
-img1.jpg,a photo of a chair,0.3348
-img3.jpg,a photo of a laptop,0.3774
+milk1.jpg,a photo of a carton of milk,0.4188
+milk2.jpg,a photo of a carton of milk,0.2304
+water3.jpg,a photo of a bottle of water,0.4007
+img2.jpg,a photo of a sofa,0.5018
+img1.jpg,a photo of a chair,0.3213
+bread.jpg,a photo of a baguette,0.3512
+beef2.jpg,a photo of a beef,0.4518
+pizza2.jpg,a photo of a cheese,0.1757
+microwave.jpg,a photo of a small_appliance,0.252
+water1.jpg,a photo of a bottle of water,0.4686
+apple1.jpg,a photo of a apple,0.5357
+oil2.jpg,a photo of a juice,0.1389
+tosadora.jpg,a photo of a small_appliance,0.3542
+wardrobe.jpg,a photo of a cupboard,0.3769
+apple2.jpg,a photo of a apple,0.2149
+beef1.jpg,a photo of a beef,0.3702
+img3.jpg,a photo of a laptop,0.365
+beef3.jpg,a photo of a beef,0.5042

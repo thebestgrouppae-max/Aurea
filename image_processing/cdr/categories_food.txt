@@ -1,0 +1,654 @@
+eel
+Açai
+broad beans
+agave syrup
+Maple syrup
+algae
+Non-alcoholic beer
+amaranth
+pineapple
+pineapple juice
+anise
+apples
+Apple cider vinegar
+applesauce
+Apple pectin
+apple juice
+apricots
+artichokes
+Artichoke hearts
+aubergine
+Oysters
+Oyster mushroom
+avocado
+baking powder
+Bacon
+Baguette
+balsamic vinegar
+bananas
+banana leaves
+barbecue sauce
+Wild garlic
+basil
+Basil (dried)
+Basmati rice
+Batavia lettuce
+belly bacon
+Berry mix
+Mountain herbs
+Beer
+Beer sausage
+pears
+pear juice
+bitter almonds
+Puff pastry (vegetable fats)
+Bluefish
+Blueberries
+Blueberries (dried)
+Cauliflower
+Blood sausage
+fenugreek seeds
+Bockwurst
+savory
+Spirit vinegar
+Bratwurst
+green beans
+Nettles
+Brie
+Brioche
+broccoli
+blackberries
+Bread
+Bread rolls
+Watercress
+Buckwheat
+Buckwheat flour
+Bulghur
+Bündnerfleisch
+Bush beans
+butter
+Butter (clarified)
+Buttermilk
+Butternut
+Camembert
+Cashew nuts
+Cashew paste
+champagne
+Cheddar
+Cherry tomatoes
+Chia seeds
+chicory
+chili
+Chili powder
+Chili sauce
+Chinese cabbage
+Chorizo
+Ciabatta
+Claresse fillet
+cognac
+cola
+cornflakes
+Couscous
+Cranberry juice
+Crème fraîche
+prawns
+croissant
+curry
+Curry paste
+Dates
+dill
+Spelt flour
+Wholegrain spelt
+Safflower oil
+cod
+canned tomatoes
+Dark chocolate
+Ebly
+Edamame
+Edam
+Oak leaf lettuce
+Oak leaf lettuce
+Eggs (barn-laid)
+Eggs (free-range)
+egg yolk
+hermit crab
+iceberg lettuce
+iced tea
+Egg white (egg)
+Emmentaler
+endive
+duck
+Peas
+Strawberries
+Tiger nuts
+peanut butter
+peanuts
+peanut oil
+Vinegar
+Pickles
+tarragon
+Figs
+Fig mustard
+whitefish
+Lamb's lettuce
+fennel
+Fennel seeds
+Feta (made from cow's milk)
+Fish
+Fish eggs
+fish sauce
+fish fingers
+flatbread
+Flammkuchen dough
+Meat
+meatloaf
+meat sausage
+flounder
+perch
+Foal
+Foie gras
+cream cheese
+fruit juice
+Early potatoes
+spring onions
+Galangal
+goose
+daisy
+shrimp
+Shrimp paste
+poultry sausage
+gelatin
+Yellow lentils
+Gelling sugar
+Vegetables
+vegetable broth
+vegetable broth
+barley
+Barley malt extract
+Flavor enhancers
+sun-dried tomatoes
+Spices
+Glass noodles
+Mulled wine
+Glutamate
+Gluten (wheat)
+Gnocchi (potato)
+Goji berries
+gilthead seabream
+Golden millet
+Gorgonzola
+Grana Padano
+pomegranate
+Pomegranate vinegar
+pomegranate syrup
+grapefruit
+grapefruit juice
+Green beans
+green lentils
+Green asparagus
+Green spelt
+Green spelt meal
+Kale
+Green tea
+Gruyère
+Guar gum
+Cucumber
+Oats
+Oat drink
+oatmeal
+oat flour
+Oat cream
+Halloumi
+Hemp oil
+Harissa
+durum wheat semolina
+Hazelnuts
+Hazelnut paste
+Hazelnut oil
+Yeast (fresh)
+nutritional yeast flakes
+Halibut
+herring
+Raspberries
+Dried raspberries
+Raspberry vinegar
+deer
+Venison sausage
+millet
+Hoisin sauce
+Hokkaido
+Honey
+Chicken
+Chicken (breast)
+Chicken (wings)
+Chicken (thigh)
+Chicken broth
+chicken meat
+lobster
+Ginger
+Ginger (pickled)
+Jalapeno
+Yogurt (natural)
+currants
+cod
+coffee beans
+Coffee creamer
+cocoa butter
+cocoa mass
+cocoa powder
+Persimmon
+prickly pear
+Calf
+Veal (breast)
+Veal (fillet)
+Veal (sliced)
+Veal (minced meat)
+Veal (neck roast)
+Veal (shanks)
+Veal (cutlet)
+Calf (liver)
+Veal (ragout)
+Veal (Schnitzel)
+Veal (shoulder roast)
+Veal (steak)
+Veal (sausage meat)
+Veal sausage
+kangaroo meat
+Rabbit meat
+Capers
+Nasturtium
+cardamom
+carrots
+carrot juice
+potatoes
+potato starch
+Semi-hard cheese
+Cheese (hard)
+Chestnuts
+caviar
+chervil
+ketchup
+chickpeas
+chickpea flour
+kidney beans
+Kimchi
+Cherries
+kiwi
+Garlic
+garlic powder
+celeriac
+Cabbage
+Kohlrabi
+coconut milk
+coconut
+coconut oil
+coconut oil
+desiccated coconut
+jam
+Lettuce
+coriander
+Coriander seeds
+Herbs
+Herb butter
+herbal tea
+cumin
+Caraway seeds
+pumpkin
+pumpkin seeds
+turmeric
+Couverture
+Salmon
+salmon trout
+lamb
+Lamb (meat without bones)
+Lamb (neck and breast)
+Lamb (leg)
+Lamb (cutlet)
+Lamb (loin)
+Lamb (shoulder)
+lobster
+Leek
+pretzel
+Pretzels
+Leberkäse
+Linseed oil
+linseed
+Lovage
+lime
+lime leaves
+lime juice
+lemonade
+lenses
+Lentil flour
+Lollo lettuce
+laurel
+Lotus root
+dandelion
+Macadamia nuts
+Madeira sauce
+corn
+Cornmeal
+Cornmeal
+marjoram
+mackerel
+Mandarins
+Mandarin juice
+Almond butter
+almonds
+mango
+Swiss chard
+Mango puree
+Mango juice
+manioc
+Passion fruit
+margarine
+jam
+chestnuts
+Marshmallow
+Mascarpone
+Mulberries
+Mulberries (dried)
+mayonnaise
+seafood
+horseradish
+sea ​​salt
+Flour (gluten-free)
+multigrain flour
+molasses
+Melons
+Merguez
+(Skimmed milk)
+Semi-skimmed milk
+Milk powder
+milk chocolate
+Mineral water (carbonated)
+Mineral water (still)
+mint
+Mint (dried)
+miso paste
+Poppy seeds
+whey
+Whey powder
+cranberry
+Morels
+Mozzarella
+Mung bean
+Mung bean sprouts
+mussels
+nutmeg
+Baking soda
+Nectarines
+Carnations
+Noodles
+nuts
+Fruit
+okra
+Olives
+olive oil
+Orange
+orange juice
+oregano
+Dried oregano
+Pak Choi
+Palm oil
+Paneer
+Pangasius
+breadcrumbs
+papaya
+paprika
+Paprika powder
+Sweet paprika powder
+Brazil nuts
+Parmesan
+parsnips
+Pecan nuts
+Peperoncini
+Pepperoni paste
+Persipan
+Pesto (Besilikum)
+Pesto Rosso
+Parsley
+Dried parsley
+parsley root
+pepper
+Horse
+chanterelles
+peaches
+peach juice
+vegetable fat
+Vegetable oil
+plums
+plum jam
+Physalis
+Mushrooms
+pine nuts
+Pistachios
+Plums (dried)
+Polenta
+fries
+purslane
+Port wine
+French beans
+Pulled beef
+Pulled Pork
+quark
+Quinoa
+Quinces
+Quorn
+Raclette cheese
+Radicchio
+radish
+rapeseed oil
+Smoke flavoring (powder)
+Smoked salmon
+smoked ham
+Red Bull
+venison
+rice
+Rice drink
+Rice vinegar
+rice flour
+rice paper
+Rice wine
+radish
+rhubarb
+Ricotta
+Beef
+Beef (fillet)
+Beef (sliced ​​beef)
+Beef (minced beef)
+Beef (Ribbon)
+Beef (rump)
+Beef (offal)
+Beef (leg)
+Beef (head, feet)
+Beef (ragout)
+Beef (Roast beef)
+Beef (Schnitzel)
+Beef (shoulder roast)
+Beef (soup meat)
+Beef (sausage meat)
+beef broth
+Risotto rice
+Vine tomatoes
+Rye flour
+Rye meal
+raw ham
+Romanesco
+Brussels sprouts
+raisins
+rosemary
+Rosemary (dried)
+redfish
+Beetroot
+red lentils
+Beetroot juice
+red cabbage
+red wine
+beets
+Ruchmehl
+arugula
+Saffron
+Cream (double cream level)
+Cream (semi-skimmed)
+Cream (full fat)
+Cream powder
+char
+salami
+sage
+Salt
+Sambal Oelek
+anchovies
+Béarnaise sauce
+sorrel
+sour cherries
+sauerkraut
+Sour milk
+sour cream
+shallot
+Ham
+sour cream
+processed cheese
+Bargain
+chives
+Chives (dried)
+plaice
+Black beans
+Black cumin
+Black tea
+black salsify
+Pig
+Pork (breast)
+Pork (fillet)
+Pork (sliced)
+Pork (minced meat)
+Pork (neck roast)
+Pork (cutlet)
+Pork (loin chop)
+Pork (ragout, ham hocks)
+Pork (Schnitzel)
+Pork (Schnürrli)
+Pork (shoulder roast)
+Pork (rind)
+Pork (sausage meat)
+lard
+hake
+Pollock
+Silken tofu
+Seitan
+Sparkling wine
+Mustard
+Mustard leaves
+Mustard seeds
+sesame
+sesame oil
+Sherry vinegar
+Shiltake
+soy
+soy yogurt
+soy flour
+soy milk
+Soybean oil
+soy sauce
+Sunflower seeds
+Sunflower oil
+Sun wheat
+spaghetti
+bacon
+spinach
+spirits
+Sprouts
+celery
+Starch (corn)
+turnips
+Porcini mushrooms
+Star anise
+Starfruit
+bouquet
+Sultanas
+licorice
+sweet potato
+Tahin
+Tamarind
+Tapenade
+Pigeon meat
+Tempeh
+Thai basil
+tuna
+Thuringian Rostbratwurst
+thyme
+Thyme (dried)
+Animal fat
+Tilapia
+Tilsit
+squid
+Squid ink
+toast
+tofu
+tomatoes
+Tomato concentrate
+Tomato juice
+Tomato sauce
+Jerusalem artichoke
+grapes
+Grape seed oil
+Grape juice
+glucose
+Dried yeast
+truffle
+Truffle oil
+turkey
+Vanilla extract
+vanilla sauce
+vanilla pods
+violet
+Whole egg
+wholegrain bread
+whole wheat flour
+Wholegrain rice
+whole grain flour
+Whole milk
+Whole wheat semolina
+Juniper berries
+Wax beans
+Walnuts
+Walnut oil
+Wasabi paste
+Water
+Watermelon
+Soft cheese
+Wine
+White beans
+White chocolate
+White asparagus
+White tea
+White cabbage
+White flour
+white wine
+White wine vinegar
+Wheat
+Wheat bran
+wheat flour
+wheat starch
+Vermouth
+Wild mushrooms
+wild boar
+savoy
+sea ​​bass
+Zander
+Goat meat
+Goat cheese
+Goat's milk
+Cinnamon
+Lemons
+Lemongrass
+Lemon balm
+Lemon juice
+lemon zest
+zucchini
+Sugar (cane)
+Sugar (beets)
+Sugarloaf
+Sugar snap peas
+plums
+onions

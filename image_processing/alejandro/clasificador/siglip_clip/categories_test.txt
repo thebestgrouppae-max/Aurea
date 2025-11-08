@@ -24,3 +24,8 @@ a photo of a small_appliance
 a photo of a big_appliance
 a photo of a CD/DVD
 a photo of a book
+a photo of a apple
+a photo of a carton of milk
+a photo of a bottle of water
+a photo of a calculator
+a photo of a dehodorant

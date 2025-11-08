@@ -1,0 +1,35 @@
+baguette
+pear
+broccoli
+croissant
+strawberry
+juice
+cucumber
+beef
+cheese
+yogurt
+table
+shelf
+cupboard
+sofa
+chair
+jacket
+trousers
+shoes
+towel
+bicycle
+laptop
+desktop computer
+small appliance
+big appliance
+CD/DVD
+book
+apple
+carton of milk
+bottle of milk
+bottle of water
+calculator
+dehodorant
+bottle of olive oil
+bottle of sunflower oil
+tomato sauce

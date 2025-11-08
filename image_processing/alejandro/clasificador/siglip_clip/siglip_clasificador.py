@@ -9,7 +9,7 @@ from transformers import CLIPProcessor, CLIPModel
 
 # Directorios y archivos
 IMAGES_DIR = "cropped_imgs"
-CATEGORIES_FILE = "categories.txt"
+CATEGORIES_FILE = "categories_test.txt"
 OUTPUT_CSV = "results.csv"
 EMBEDDINGS_FILE = "embeddings_categories.npy"
 

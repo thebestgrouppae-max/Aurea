@@ -1,0 +1,38 @@
+input_image,boxed_image,crop_image,bbox_x1,bbox_y1,bbox_x2,bbox_y2,yolo_conf,clip_category,clip_prob
+sofa1.jpg,sofa1_with_boxes.jpg,sofa1_crop_000.jpg,9,12,390,236,0.6956,other,0.2399
+abrigo2.jpg,abrigo2_with_boxes.jpg,abrigo2_crop_000.jpg,15,4,390,685,0.5992,a photo of a Coat,0.4466
+abrigo2.jpg,abrigo2_with_boxes.jpg,abrigo2_crop_001.jpg,14,3,391,685,0.3332,a photo of a Coat,0.4428
+oficina1.jpg,oficina1_with_boxes.jpg,oficina1_crop_000.jpg,120,525,306,677,0.4038,other,0.2357
+armario2.jpg,armario2_with_boxes.jpg,armario2_crop_000.jpg,1,3,204,387,0.4308,other,0.195
+comedor1.jpg,comedor1_with_boxes.jpg,comedor1_crop_000.jpg,703,374,864,513,0.639,other,0.1983
+comedor1.jpg,comedor1_with_boxes.jpg,comedor1_crop_001.jpg,925,388,1067,513,0.4887,other,0.225
+comedor1.jpg,comedor1_with_boxes.jpg,comedor1_crop_002.jpg,0,25,1067,509,0.4334,other,0.1081
+comedor1.jpg,comedor1_with_boxes.jpg,comedor1_crop_003.jpg,867,359,1014,513,0.301,other,0.1643
+comedor1.jpg,comedor1_with_boxes.jpg,comedor1_crop_004.jpg,460,390,583,510,0.2999,other,0.1865
+comedor1.jpg,comedor1_with_boxes.jpg,comedor1_crop_005.jpg,301,315,601,498,0.297,other,0.1802
+comedor1.jpg,comedor1_with_boxes.jpg,comedor1_crop_006.jpg,302,315,600,499,0.2916,other,0.1687
+comedor1.jpg,comedor1_with_boxes.jpg,comedor1_crop_007.jpg,0,0,82,196,0.2623,other,0.0736
+comedor1.jpg,comedor1_with_boxes.jpg,comedor1_crop_008.jpg,980,389,1067,513,0.2586,other,0.2018
+sillon1.jpg,sillon1_with_boxes.jpg,sillon1_crop_000.jpg,10,23,401,325,0.6212,a photo of a Armchair,0.3222
+carrito.jpg,carrito_with_boxes.jpg,carrito_crop_000.jpg,58,357,121,432,0.635,other,0.1007
+carrito.jpg,carrito_with_boxes.jpg,carrito_crop_001.jpg,182,404,249,484,0.5696,other,0.1716
+carrito.jpg,carrito_with_boxes.jpg,carrito_crop_002.jpg,296,362,345,425,0.4717,other,0.0833
+oficina2.jpg,oficina2_with_boxes.jpg,oficina2_crop_000.jpg,0,0,484,644,0.7279,other,0.1124
+oficina2.jpg,oficina2_with_boxes.jpg,oficina2_crop_001.jpg,248,416,378,644,0.5435,other,0.1766
+oficina2.jpg,oficina2_with_boxes.jpg,oficina2_crop_002.jpg,220,334,370,577,0.4266,other,0.085
+oficina2.jpg,oficina2_with_boxes.jpg,oficina2_crop_003.jpg,381,304,484,466,0.3544,other,0.1931
+oficina2.jpg,oficina2_with_boxes.jpg,oficina2_crop_004.jpg,172,189,237,258,0.2771,other,0.1047
+vaqueros1.jpg,vaqueros1_with_boxes.jpg,vaqueros1_crop_000.jpg,10,11,284,555,0.439,a photo of a jeans,0.4233
+tosadora.jpg,tosadora_with_boxes.jpg,tosadora_crop_000.jpg,6,5,294,242,0.261,a photo of a small household appliance,0.3389
+wardrobe.jpg,wardrobe_with_boxes.jpg,wardrobe_crop_000.jpg,15,6,241,292,0.4641,other,0.2049
+wardrobe.jpg,wardrobe_with_boxes.jpg,wardrobe_crop_001.jpg,123,210,179,242,0.2748,other,0.0878
+wardrobe.jpg,wardrobe_with_boxes.jpg,wardrobe_crop_002.jpg,183,205,235,235,0.2633,other,0.1154
+armario1.jpg,armario1_with_boxes.jpg,armario1_crop_000.jpg,14,6,225,375,0.723,other,0.228
+vaqueros2.jpg,vaqueros2_with_boxes.jpg,vaqueros2_crop_000.jpg,11,19,304,553,0.3239,a photo of a jeans,0.4457
+sofa2.jpg,sofa2_with_boxes.jpg,sofa2_crop_000.jpg,18,16,401,156,0.6129,a photo of a sofa,0.2992
+tostadora.jpg,tostadora_with_boxes.jpg,tostadora_crop_000.jpg,15,6,573,486,0.6399,a photo of a small household appliance,0.2569
+microondas.jpg,microondas_with_boxes.jpg,microondas_crop_000.jpg,52,83,314,330,0.4371,other,0.1709
+vitrina2.jpg,vitrina2_with_boxes.jpg,vitrina2_crop_000.jpg,6,2,153,374,0.5074,a photo of a Cabinet,0.2672
+vitrina2.jpg,vitrina2_with_boxes.jpg,vitrina2_crop_001.jpg,15,177,137,207,0.2588,other,0.0718
+cocina1.jpg,cocina1_with_boxes.jpg,cocina1_crop_000.jpg,0,0,962,429,0.283,other,0.1226
+cocina1.jpg,cocina1_with_boxes.jpg,cocina1_crop_001.jpg,386,292,900,429,0.2544,other,0.1683

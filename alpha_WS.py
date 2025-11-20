@@ -6,12 +6,12 @@ import time
 # ================== CONFIG ==================
 supermercadoURLs = {
     'Mercadona': "https://tienda.mercadona.es/",
-    'Carrefour': "https://www.carrefour.es/",
-    'Condis':    "https://www.condisline.com/",
+    #'Carrefour': "https://www.carrefour.es/",
+    #'Condis':    "https://www.condisline.com/",
 }
 mueblesURLs = {
     'Ikea': "https://www.ikea.com/es/es/",
-    'LeroyMerlin': "https://www.leroymerlin.es/",
+    #'LeroyMerlin': "https://www.leroymerlin.es/",
 }
 ropaURLs = {
     'Zara': "https://www.zara.com/es/",
@@ -37,13 +37,13 @@ bebesURLs = {
     'amazon': "https://www.amazon.es/",
 }
 CODIGO_POSTAL = "08001"
-producto = "camiseta blanca hombreS"
+producto = "silla oficina"
 kgs = 1
 precio_kgs= 5.0  # €/kg
 # ============================================
 
 precioProducto = {}
-listaURLs = ropaURLs.copy()
+listaURLs = mueblesURLs.copy()
 
 
 
@@ -344,11 +344,16 @@ with sync_playwright() as p:
 
 # ================== CALCULAR PRECIO MÍNIMO ==================
 # Filtramos solo los precios numéricos válidos
+if listaURLs == supermercadoURLs:
+    alpha_factor=1.0
+else:
+    alpha_factor=0.6
+
 precios_validos=filtrar_precios(precioProducto.values())
 if precios_validos == []:
     precio_min = kgs * precio_kgs
     print(f"\nEl precio más bajo es: {precio_min:.2f}€")
 else:
-    precio_min = min(precios_validos)
+    precio_min = min(precios_validos)*alpha_factor
     print(f"\nEl precio más bajo es: {precio_min:.2f}€")
 

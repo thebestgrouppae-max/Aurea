@@ -1,5 +1,7 @@
 //PQ FUNCIONI S'HA DE HOSTEJAR AMB ALGUNA PLATAFORMA QUE TINGUI PHP, PER EXEMPLE XAMPP
 //Posar la pagina web a C:\xampp\htdocs\aur_Upload
+//hosteja a http://localhost(:80)/aur_upload lo de () no cal
+//Al que pugis sempre li posarà el nom foto.jpg
 <?php
 // Carpeta donde se guardarán los archivos (carpeta "Upload" junto a este PHP)
 $uploadDir = __DIR__ . '/Upload/';
@@ -33,24 +35,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Validar extensión
-    $allowedExt = ['png','gif','jpg','jpeg','doc','docx','xls','xlsx','rtf','txt','pdf','odg','odt','ods','odf','odp','odb'];
+    // Validar extensión: solo JPG / JPEG
+    $allowedExt = ['jpg', 'jpeg'];
     $filename   = basename($file['name']);
     $ext        = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 
     if (!in_array($ext, $allowedExt)) {
-        echo "Tipo de archivo no permitido.";
+        echo "Solo se permiten imágenes JPG o JPEG.";
         exit;
     }
 
-    // Ruta final
-    $destino = $uploadDir . $filename;
+    // Ruta final: siempre 'foto.jpg'
+    $destino = $uploadDir . 'foto.jpg';
 
     if (move_uploaded_file($file['tmp_name'], $destino)) {
-        echo "Archivo subido correctamente a: Upload/$filename";
+        echo "Archivo subido correctamente como: Upload/foto.jpg";
     } else {
         echo "No se pudo guardar el archivo en el servidor.";
     }
 }
 ?>
+
+
 

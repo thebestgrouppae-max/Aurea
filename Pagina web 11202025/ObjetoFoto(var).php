@@ -1,4 +1,5 @@
 //PQ FUNCIONI S'HA DE HOSTEJAR AMB ALGUNA PLATAFORMA QUE TINGUI PHP, PER EXEMPLE XAMPP
+//Posar la pagina web a C:\xampp\htdocs\aur_Upload
 <?php
 // Carpeta donde se guardarán los archivos (carpeta "Upload" junto a este PHP)
 $uploadDir = __DIR__ . '/Upload/';
@@ -52,3 +53,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+

@@ -1,3 +1,4 @@
+#POL:  ANTES DE RUNNEAR --> pip install -r requirements.txt
 import os
 import cv2
 import numpy as np

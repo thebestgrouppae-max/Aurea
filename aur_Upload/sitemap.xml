@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc />
+    <lastmod>2025-11-27</lastmod>
+  </url>
+  <url oeid="5c348634-911f-4856-aba0-16f4544fe7c7" oelang="DEFAULT">
+    <loc>index.htm</loc>
+    <lastmod>2025-11-27</lastmod>
+  </url>
+  <url oeid="f9e38f1e-c01a-4aab-aaae-171897b56515" oelang="DEFAULT">
+    <loc>ObjetoFoto.htm</loc>
+    <lastmod>2025-11-27</lastmod>
+  </url>
+  <url oeid="4955575b-cc4c-49ce-803e-f724e2887f37" oelang="DEFAULT">
+    <loc>Manual.htm</loc>
+    <lastmod>2025-11-27</lastmod>
+  </url>
+  <url oeid="eebea9c3-402d-466c-bceb-80b053ed65e7" oelang="DEFAULT">
+    <loc>Human Resources.htm</loc>
+    <lastmod>2025-11-27</lastmod>
+  </url>
+  <url oeid="d2b0370e-7f87-42ed-8508-4b3e1bfca094" oelang="DEFAULT">
+    <loc>AlimentosFoto.htm</loc>
+    <lastmod>2025-11-27</lastmod>
+  </url>
+  <url oeid="a9e5502c-4028-4a4b-bfa1-2fb66d2e182e" oelang="DEFAULT">
+    <loc>ObjetoInfo.htm</loc>
+    <lastmod>2025-11-27</lastmod>
+  </url>
+  <url oeid="3c7312ab-f9ab-43dc-beba-0e9c35978547" oelang="DEFAULT">
+    <loc>AlimentosInfo.htm</loc>
+    <lastmod>2025-11-27</lastmod>
+  </url>
+</urlset>

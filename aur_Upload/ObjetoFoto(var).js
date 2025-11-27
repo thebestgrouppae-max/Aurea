@@ -1,0 +1,1 @@
+var OEConfWESendForm = {"WE89a9f5ff8f":{"Config":{"Action":{"Target":null,"Links":{"Items":{"DEFAULT":"ObjetoFoto(var).php"}}},"FormName":"Submit Form","Method":0,"Enctype":1,"Target":0,"FormLinks":{"ElementsID":{"WE1291dc5be3":"WEUploadFiles2"},"ButtonSubmitID":"WE1d74afadb1","ButtonCancelID":""},"Validator":false,"KeepURLParams":false}}}

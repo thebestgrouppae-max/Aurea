@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="openElement (1.57.9)" />
+  <link id="openElement" rel="stylesheet" type="text/css" href="WEFiles/Css/v02/openElement.css?v=50491126800" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link id="siteFonts" rel="stylesheet" type="text/css" href="Files/Fonts/Fonts.css?v=50491126800" />
+  <link id="OEBase" rel="stylesheet" type="text/css" href="Human%20Resources.css?v=50491126800" />
+  <link rel="stylesheet" type="text/css" href="WEFiles/Css/opentip.css?v=50491126800" />
+  <!--[if lte IE 7]>
+  <link rel="stylesheet" type="text/css" href="WEFiles/Css/ie7.css?v=50491126800" />
+  <![endif]-->
+  <script type="text/javascript">
+   var WEInfoPage = {"PHPVersion":"phpOK","OEVersion":"1-57-9","PagePath":"Human Resources","Culture":"DEFAULT","LanguageCode":"EN","RelativePath":"","RenderMode":"Export","PageAssociatePath":"Human Resources","EditorTexts":null};
+  </script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="WEFiles/Client/jQuery/migrate.js?v=50491126800"></script>
+  <script type="text/javascript" src="WEFiles/Client/Common/oe.min.js?v=50491126800"></script>
+  <script type="text/javascript" src="Human%20Resources(var).js?v=50491126800"></script>
+  <script type="text/javascript" src="WEFiles/Client/jQuery/Plugins/jquery.form.js?v=50491126800"></script>
+  <script type="text/javascript" src="WEFiles/Client/opentip-jquery.min.js?v=50491126800"></script>
+  <script type="text/javascript" src="WEFiles/Client/WESendForm-v210.js?v=50491126800"></script>
+  <script type="text/javascript">
+   function getParametroGET(nombre) {
+     const params = new URLSearchParams(window.location.search);
+     return params.get(nombre);
+   }
+   // JavaScript MODIFICADO per OpenElement - Ara mostra salari empleat + cost empresa
+   
+   console.log('🚀 Carregant JavaScript d\'integració de salaris...');
+   
+   // Configuració de l'API
+   const API_BASE_URL = 'http://localhost:5000';
+   
+   // Funció principal per buscar salaris
+   async function buscarSalari() {
+       console.log('🔍 Iniciant cerca de salaris...');
+   
+       // Obtenir elements del DOM amb IDs d'OpenElement
+       const jobTitleInput = document.getElementById('WEjob-title');
+       const resultsDiv = document.getElementById('WEresults');
+       const loadingDiv = document.getElementById('WEloading');
+       const errorDiv = document.getElementById('WEerror');
+   
+       const jobTitle = getParametroGET('WEjob-title');
+       console.log('📝 Feina introduïda:', jobTitle);
+       // Validació d'entrada
+       if (!jobTitle) {
+           mostrarError('Introduce el nombre de un trabajo');
+           return;
+       }
+       const jobTitleClean = jobTitle.replace(/['\"\\\\]/g, '');
+   
+       try {
+           // Mostrar estat de càrrega
+           if (loadingDiv) {
+               loadingDiv.style.display = 'block';
+               loadingDiv.textContent = '⏳ Buscando salarios para: ' + jobTitleClean;
+           }
+           if (resultsDiv) resultsDiv.style.display = 'none';
+           if (errorDiv) errorDiv.style.display = 'none';
+   
+           console.log('🌐 Fent petició a l\'API...');
+   
+           // Construir URL amb encoding adequat
+           const encodedJobTitle = encodeURIComponent(jobTitleClean);
+           const apiUrl = API_BASE_URL + '/api/salary?job_title=' + encodedJobTitle;
+   
+           console.log('🔗 URL de l\'API:', apiUrl);
+   
+           // Petició a l'API amb timeout
+           const controller = new AbortController();
+           const timeoutId = setTimeout(() => controller.abort(), 200000); // 20 segons timeout
+   
+           const response = await fetch(apiUrl, {
+               method: 'GET',
+               headers: {
+                   'Content-Type': 'application/json',
+               },
+               signal: controller.signal
+           });
+   
+           clearTimeout(timeoutId);
+   
+           console.log('📡 Resposta rebuda. Status:', response.status);
+   
+           const data = await response.json();
+           console.log('📊 Dades de l\'API:', data);
+   
+           if (response.ok && data.success) {
+               mostrarResultats(data);
+           } else {
+               const errorMsg = data.error || 'Error desconocido de la API';
+               mostrarError(errorMsg);
+           }
+   
+       } catch (error) {
+           console.error('❌ Error de connexió:', error);
+   
+           let errorMessage = 'Error de connexion con el servidor.';
+           if (error.name === 'AbortError') {
+               errorMessage = error.message;
+           } else if (error.message.includes('fetch')) {
+               errorMessage = 'No se puede conectar con la API. Verifica que este ejecutandose en http://localhost:5000';
+           }
+   
+           mostrarError(errorMessage);
+       } finally {
+           // Ocultar estat de càrrega
+           if (loadingDiv) loadingDiv.style.display = 'none';
+       }
+   }
+   
+   // Funció per mostrar els resultats MODIFICADA
+   function mostrarResultats(data) {
+       console.log('✅ Mostrando resultados...');
+   
+       const resultsDiv = document.getElementById('WEresults');
+   
+       if (!resultsDiv) {
+           console.error('❌ No se encuentra el elemento con id "WEresults"');
+           return;
+       }
+   
+       const salaryEmployee = data.salary_employee;
+       const companyCost = data.salary_data;
+   
+       // Crear HTML dels resultats amb salari empleat + cost empresa
+       const html = '<div class="salary-results">' +
+           '<h3>Resultados para: ' + escapeHtml(data.job_title) + '</h3>' +
+           '<div class="salary-info">' +
+               '<div class="employee-section" style="border: 1px solid #28a745; padding: 15px; margin-bottom: 15px; border-radius: 5px; background-color: #f8f9fa;">' +
+                   '<h4 style="color: #28a745; margin-top: 0;">💼 Salario del Trabajador</h4>' +
+                   '<div class="employee-annual">' +
+                       '<strong>Salario anual bruto:</strong><br>' +
+                       '€' + salaryEmployee.annual_min.toLocaleString() + ' - €' + salaryEmployee.annual_max.toLocaleString() +
+                       '<div><small>Promedio anual: €' + salaryEmployee.annual_avg.toLocaleString() + '</small></div>' +
+                   '</div>' +
+                   '<div class="employee-hourly" style="margin-top: 10px;">' +
+                       '<strong>Salario por hora del trabajador:</strong><br>' +
+                       '€' + salaryEmployee.hour_min + ' - €' + salaryEmployee.hour_max +
+                       '<div><small>Promedio por hora: €' + salaryEmployee.hour_avg + '</small></div>' +
+                   '</div>' +
+               '</div>' +
+               '<div class="company-section" style="border: 1px solid #dc3545; padding: 15px; margin-bottom: 15px; border-radius: 5px; background-color: #fff5f5;">' +
+                   '<h4 style="color: #dc3545; margin-top: 0;">🏢 Coste para la Empresa</h4>' +
+                   '<div class="company-hourly">' +
+                       '<strong>Coste por hora (incluye SS + impuestos):</strong><br>' +
+                       '€' + companyCost.minimum + ' - €' + companyCost.maximum +
+                       '<div><small>Promedio por hora: €' + companyCost.average + '</small></div>' +
+                   '</div>' +
+                   '<div class="company-details" style="margin-top: 10px;">' +
+                       '<small>Factor de coste: x' + data.company_cost.factor_coste + ' | Horas anuales: ' + data.company_cost.horas_anuales + '</small>' +
+                   '</div>' +
+               '</div>' +
+               '<div class="salary-details" style="text-align: center; color: #666; font-size: 12px;">' +
+                   '<small>📍 ' + escapeHtml(data.location) + ' | 📊 Fuente: ' + escapeHtml(data.source) + '</small>' +
+               '</div>' +
+           '</div>' +
+       '</div>';
+   
+       resultsDiv.innerHTML = html;
+       resultsDiv.style.display = 'block';
+   
+       console.log('✅ Resultats mostrats correctament amb salari empleat i cost empresa');
+   }
+   
+   // Funció per mostrar errors
+   function mostrarError(message) {
+       console.warn('⚠️ Mostrant error:', message);
+   
+       const errorDiv = document.getElementById('WEerror');
+   
+       if (errorDiv) {
+           errorDiv.innerHTML = '<p style="color: red; padding: 10px; border: 1px solid red; border-radius: 5px;">❌ ' + escapeHtml(message) + '</p>';
+           errorDiv.style.display = 'block';
+       } else {
+           // Fallback: mostrar a WEresults si no hi ha div d'error
+           const resultsDiv = document.getElementById('WEresults');
+           if (resultsDiv) {
+               resultsDiv.innerHTML = '<p style="color: red; padding: 10px; border: 1px solid red; border-radius: 5px;">❌ ' + escapeHtml(message) + '</p>';
+               resultsDiv.style.display = 'block';
+           } else {
+               alert('Error: ' + message);
+           }
+       }
+   }
+   
+   // Funció per escapar HTML i evitar problemes
+   function escapeHtml(text) {
+       const div = document.createElement('div');
+       div.textContent = text;
+       return div.innerHTML;
+   }
+   
+   // Funció per provar la connexió amb l'API
+   async function provarConnexio() {
+       try {
+           console.log('🔍 Provant connexió amb l\'API...');
+   
+           const response = await fetch(API_BASE_URL + '/api/health');
+           const data = await response.json();
+   
+           if (response.ok) {
+               console.log('✅ Connexió amb l\'API exitosa:', data);
+               return true;
+           } else {
+               console.error('❌ Error de l\'API:', data);
+               return false;
+           }
+       } catch (error) {
+           console.error('❌ Error de connexió:', error);
+           mostrarError('No es pot connectar amb l\'API. Verifica que estigui executant-se a http://localhost:5000');
+           return false;
+       }
+   }
+   
+   console.log('✅ JavaScript d\'integració carregat correctament');
+   
+   window.onload = buscarSalari;
+  </script>
+ </head>
+ <body class="">
+  <form id="XForm" method="post" action="#"></form>
+  <div id="XBody" class="BaseDiv RWidth OEPageXbody OESK_XBody_Default" style="z-index:0">
+   <div class="OESZ OESZ_DivContent OESZG_XBody">
+    <div class="OESZ OESZ_XBodyContent OESZG_XBody OECT OECT_Content OECTAbs">
+     <div id="WE1b9691d5f6" class="BaseDiv RBoth OEWEHr OESK_WEHrLign_Default" style="z-index:9">
+      <div class="OESZ OESZ_DivContent OESZG_WE1b9691d5f6">
+       <div class="OESZ OESZ_Deco1 OESZG_WE1b9691d5f6" style="position:absolute"></div>
+       <div class="OESZ OESZ_Deco2 OESZG_WE1b9691d5f6" style="position:absolute"></div>
+       <div class="OESZ OESZ_Deco3 OESZG_WE1b9691d5f6" style="position:absolute"></div>
+      </div>
+     </div>
+     <div id="WEa11e54f6a1" class="BaseDiv RBoth OEWELink OESK_WELink_Default" style="z-index:10" onclick="return OE.Navigate.open(event,'index.htm',1)">
+      <div class="OESZ OESZ_DivContent OESZG_WEa11e54f6a1">
+       <a class="OESZ OESZ_Link OESZG_WEa11e54f6a1 ContentBox" data-cd="PageLink" href="index.htm"><span style="color:rgb(255, 255, 255);font-family:'Montserrat Thin';">Inicio</span></a>
+      </div>
+     </div>
+     <div id="WEffa05e1cbc" class="BaseDiv RBoth OEWELink OESK_WELink_Default" style="z-index:11">
+      <div class="OESZ OESZ_DivContent OESZG_WEffa05e1cbc">
+       <a class="OESZ OESZ_Link OESZG_WEffa05e1cbc ContentBox" data-cd="PageLink"><span style="font-family:'Montserrat Thin';"><span style="color:rgb(255, 255, 255);">Objeto&nbsp;| Alimentos |&nbsp;</span><span style="color:rgb(255, 255, 255);"><b>Servicio</b></span></span><br /></a>
+      </div>
+     </div>
+     <div id="WEa4f18ea50c" class="BaseDiv RNone OEWELinkButton OESK_WELinkButton_Default" style="z-index:12" onclick="return OE.Navigate.open(event,'ObjetoFoto.htm',1)">
+      <div class="OESZ OESZ_DivContent OESZG_WEa4f18ea50c">
+       <a class="OESZ OESZ_Text OESZG_WEa4f18ea50c ContentBox" href="ObjetoFoto.htm"><span style="color:rgb(242, 242, 242);">AAAAA</span></a>
+      </div>
+     </div>
+     <div id="WEacb5b28260" class="BaseDiv RNone OEWELinkButton OESK_WELinkButton_Default" style="z-index:13" onclick="return OE.Navigate.open(event,'AlimentosFoto.htm',1)">
+      <div class="OESZ OESZ_DivContent OESZG_WEacb5b28260">
+       <a class="OESZ OESZ_Text OESZG_WEacb5b28260 ContentBox" href="AlimentosFoto.htm"><span style="color:rgb(242, 242, 242);">AAAAaaaaaaA</span></a>
+      </div>
+     </div>
+     <div id="WEf24d3c9843" class="BaseDiv RNone OEWELinkButton OESK_WELinkButton_Default" style="z-index:14" onclick="return OE.Navigate.open(event,'Human%20Resources.htm',1)">
+      <div class="OESZ OESZ_DivContent OESZG_WEf24d3c9843">
+       <a class="OESZ OESZ_Text OESZG_WEf24d3c9843 ContentBox" href="Human%20Resources.htm"><span style="color:rgb(242, 242, 242);">AAAAaA</span></a>
+      </div>
+     </div>
+     <div id="WE182b082c43" class="BaseDiv RBoth OEWEHr OESK_WEHrLign_Default" style="z-index:1">
+      <div class="OESZ OESZ_DivContent OESZG_WE182b082c43">
+       <div class="OESZ OESZ_Deco1 OESZG_WE182b082c43" style="position:absolute"></div>
+       <div class="OESZ OESZ_Deco2 OESZG_WE182b082c43" style="position:absolute"></div>
+       <div class="OESZ OESZ_Deco3 OESZG_WE182b082c43" style="position:absolute"></div>
+      </div>
+     </div>
+     <div id="WE98b09c9058" class="BaseDiv RNone OEWELinkButton OESK_WELinkButton_Default" style="z-index:3" onclick="return OE.Navigate.open(event,'index.htm',1)">
+      <div class="OESZ OESZ_DivContent OESZG_WE98b09c9058">
+       <a class="OESZ OESZ_Text OESZG_WE98b09c9058 ContentBox" href="index.htm">Página de inicio</a>
+      </div>
+     </div>
+     <div id="WE6e0ac07373" class="BaseDiv RNone OEWELabel OESK_WELabel_Default" style="z-index:4">
+      <div class="OESZ OESZ_DivContent OESZG_WE6e0ac07373">
+       <span class="OESZ OESZ_Text OESZG_WE6e0ac07373 ContentBox"><span style="font-family:'Montserrat Thin';">Introduce el nombre del trabajo</span></span>
+      </div>
+     </div>
+     <div id="WEjob-title" class="BaseDiv RWidth OEWETextBoxV2 OESK_WETextBox2_Default" style="z-index:5">
+      <div class="OESZ OESZ_DivContent OESZG_WEjob-title">
+       <input name="WEjob-title" type="text" placeholder="Ej: psicologo, jardinero" class="OESZ OESZ_TextBox OESZG_WEjob-title OEDynTag0" />
+      </div>
+     </div>
+     <div id="WEe0d78abd30" class="BaseDiv RNone OEWELinkButton OESK_WELinkButton_Default" style="z-index:6" onclick="return OE.Navigate.open(event,'javascript:buscarSalari()',1)">
+      <div class="OESZ OESZ_DivContent OESZG_WEe0d78abd30">
+       <a class="OESZ OESZ_Text OESZG_WEe0d78abd30 ContentBox" href="javascript:buscarSalari()"><span style="color:rgb(0, 0, 0);">Buscar salario</span></a>
+      </div>
+     </div>
+     <div id="WE4ca04e18f5" class="BaseDiv RBoth OEWEHr OESK_WEHrLign_Default" style="z-index:2">
+      <div class="OESZ OESZ_DivContent OESZG_WE4ca04e18f5">
+       <div class="OESZ OESZ_Deco1 OESZG_WE4ca04e18f5" style="position:absolute"></div>
+       <div class="OESZ OESZ_Deco2 OESZG_WE4ca04e18f5" style="position:absolute"></div>
+       <div class="OESZ OESZ_Deco3 OESZG_WE4ca04e18f5" style="position:absolute"></div>
+      </div>
+     </div>
+     <div id="WEresults" class="BaseDiv RWidth OEWEText OESK_WEText_Default" style="z-index:7">
+      <div class="OESZ OESZ_DivContent OESZG_WEresults">
+       <span class="ContentBox"><br /></span>
+      </div>
+     </div>
+     <div id="WEloading" class="BaseDiv RWidth OEWEText OESK_WEText_Default" style="z-index:8">
+      <div class="OESZ OESZ_DivContent OESZG_WEloading">
+       <span class="ContentBox"><br /></span>
+      </div>
+     </div>
+    </div>
+    <div class="OESZ OESZ_XBodyFooter OESZG_XBody OECT OECT_Footer OECTAbs"></div>
+   </div>
+  </div>
+ </body>
+</html>

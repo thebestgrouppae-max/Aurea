@@ -1,0 +1,18 @@
+@font-face {
+font-family: "Montserrat Thin Italic";
+src: url("Montserrat Thin Italic.eot") format("eot"); /* IE9 Compat Modes */
+src: url("Montserrat Thin Italic.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+     url("Montserrat Thin Italic.woff") format("woff"), /* Modern Browsers */
+     url("Montserrat Thin Italic.ttf") format("truetype"); /* Safari, Android, iOS */
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: "Montserrat Thin";
+src: url("Montserrat Thin.eot") format("eot"); /* IE9 Compat Modes */
+src: url("Montserrat Thin.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+     url("Montserrat Thin.woff") format("woff"), /* Modern Browsers */
+     url("Montserrat Thin.ttf") format("truetype"); /* Safari, Android, iOS */
+font-weight: normal;
+font-style: normal;
+}

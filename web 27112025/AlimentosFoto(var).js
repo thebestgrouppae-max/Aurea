@@ -1,0 +1,1 @@
+var OEConfWESendForm = {"WE171400f3f2":{"Config":{"Action":{"Target":null,"Links":{"Items":{"DEFAULT":"AlimentosFoto(var).php"}}},"FormName":"Submit Form","Method":0,"Enctype":1,"Target":0,"FormLinks":{"ElementsID":{"WEe508ccd7a6":"WEUploadFiles2"},"ButtonSubmitID":"WE233db2cd53","ButtonCancelID":""},"Validator":false,"KeepURLParams":false}}}

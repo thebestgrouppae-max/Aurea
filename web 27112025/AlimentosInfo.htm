@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="openElement (1.57.9)" />
+  <link id="openElement" rel="stylesheet" type="text/css" href="WEFiles/Css/v02/openElement.css?v=50491126800" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link id="siteFonts" rel="stylesheet" type="text/css" href="Files/Fonts/Fonts.css?v=50491126800" />
+  <link id="OEBase" rel="stylesheet" type="text/css" href="AlimentosInfo.css?v=50491126800" />
+  <link rel="stylesheet" type="text/css" href="WEFiles/Css/opentip.css?v=50491126800" />
+  <!--[if lte IE 7]>
+  <link rel="stylesheet" type="text/css" href="WEFiles/Css/ie7.css?v=50491126800" />
+  <![endif]-->
+  <script type="text/javascript">
+   var WEInfoPage = {"PHPVersion":"phpOK","OEVersion":"1-57-9","PagePath":"AlimentosInfo","Culture":"DEFAULT","LanguageCode":"EN","RelativePath":"","RenderMode":"Export","PageAssociatePath":"AlimentosInfo","EditorTexts":null};
+  </script>
+  <script type="text/javascript" src="WEFiles/Client/jQuery/1.10.2.js?v=50491126800"></script>
+  <script type="text/javascript" src="WEFiles/Client/jQuery/migrate.js?v=50491126800"></script>
+  <script type="text/javascript" src="WEFiles/Client/Common/oe.min.js?v=50491126800"></script>
+  <script type="text/javascript" src="AlimentosInfo(var).js?v=50491126800"></script>
+  <script type="text/javascript" src="WEFiles/Client/jQuery/Plugins/jquery.form.js?v=50491126800"></script>
+  <script type="text/javascript" src="WEFiles/Client/opentip-jquery.min.js?v=50491126800"></script>
+  <script type="text/javascript" src="WEFiles/Client/WESendForm-v210.js?v=50491126800"></script>
+  <script type="text/javascript">
+   function getParametroGET(nombre) {
+     const params = new URLSearchParams(window.location.search);
+     return params.get(nombre);
+   }
+
+   console.log('🚀 Cargando JS de envío a API...');
+
+   const API_BASE_URL = 'http://localhost:5000';
+
+   // Función principal para enviar el texto de WEunidades
+   async function enviarTexto() {
+       console.log('🔍 Iniciando envío a la API...');
+
+       // Obtener el input de OpenElement
+       const textoInput = document.getElementById('WEuniAlimentos');
+       const resultsDiv = document.getElementById('WEresults');
+       const loadingDiv = document.getElementById('WEloading');
+       const errorDiv = document.getElementById('WEerror');
+
+       if (!textoInput) {
+           console.error('❌ No se encuentra el elemento con id "WEuniAlimentos"');
+           mostrarError('No se encuentra el campo de texto.');
+           return;
+       }
+
+       const texto = getParametroGET('WEuniAlimentos');
+       console.log('📝 Texto introducido:', texto);
+
+       if (!texto) {
+           mostrarError('Introduce algún texto antes de enviar');
+           return;
+       }
+
+       const textoClean = texto.replace(/['"\\]/g, '');
+
+       try {
+           // Mostrar estado de carga
+           if (loadingDiv) {
+               loadingDiv.style.display = 'block';
+               loadingDiv.textContent = '⏳ Enviando datos a la API...';
+           }
+           if (resultsDiv) resultsDiv.style.display = 'none';
+           if (errorDiv) errorDiv.style.display = 'none';
+
+           console.log('🌐 Haciendo petición a la API...');
+
+           // ✅ Construir URL con parámetro en querystring
+           const params = new URLSearchParams({ texto: textoClean });
+           const apiUrl = API_BASE_URL + '/api/alimentos?' + params.toString();
+           console.log('🔗 URL de la API:', apiUrl);
+
+           const controller = new AbortController();
+           const timeoutId = setTimeout(() => controller.abort(), 20000); // 20 segundos
+
+           const response = await fetch(apiUrl, {
+               method: 'POST',        // mantengo POST, solo sin body
+               signal: controller.signal
+           });
+
+           clearTimeout(timeoutId);
+
+           console.log('📡 Respuesta recibida. Status:', response.status);
+
+           const data = await response.json();
+           console.log('📊 Datos de la API:', data);
+
+           if (response.ok) {
+               mostrarResultats(data);
+           } else {
+               const errorMsg = data.error || 'Error desconocido de la API';
+               mostrarError(errorMsg);
+           }
+
+       } catch (error) {
+           console.error('❌ Error de conexión:', error);
+
+           let errorMessage = 'Error de conexión con el servidor.';
+           if (error.name === 'AbortError') {
+               errorMessage = 'Tiempo de espera agotado al conectar con la API.';
+           } else if (error.message && error.message.includes('fetch')) {
+               errorMessage = 'No se puede conectar con la API. Verifica que esté ejecutándose en http://localhost:5000';
+           }
+
+           mostrarError(errorMessage);
+       } finally {
+           if (loadingDiv) loadingDiv.style.display = 'none';
+       }
+   }
+
+   function mostrarResultats(data) {
+       console.log('✅ Mostrando resultados...');
+
+       const resultsDiv = document.getElementById('WEresults');
+
+       if (!resultsDiv) {
+           console.error('❌ No se encuentra el elemento con id "WEresults"');
+           return;
+       }
+
+       // Adapta este HTML a lo que devuelva tu API
+       const html = '<div class="api-results">' +
+           '<h3>Respuesta de la API</h3>' +
+           '<pre>' + escapeHtml(JSON.stringify(data, null, 2)) + '</pre>' +
+       '</div>';
+
+       resultsDiv.innerHTML = html;
+       resultsDiv.style.display = 'block';
+
+       console.log('✅ Resultados mostrados correctamente');
+   }
+
+   function mostrarError(message) {
+       console.warn('⚠️ Mostrando error:', message);
+
+       const errorDiv = document.getElementById('WEerror');
+
+       if (errorDiv) {
+           errorDiv.innerHTML = '<p style="color: red; padding: 10px; border: 1px solid red; border-radius: 5px;">❌ ' + escapeHtml(message) + '</p>';
+           errorDiv.style.display = 'block';
+       } else {
+           const resultsDiv = document.getElementById('WEresults');
+           if (resultsDiv) {
+               resultsDiv.innerHTML = '<p style="color: red; padding: 10px; border: 1px solid red; border-radius: 5px;">❌ ' + escapeHtml(message) + '</p>';
+               resultsDiv.style.display = 'block';
+           } else {
+               alert('Error: ' + message);
+           }
+       }
+   }
+
+   function escapeHtml(text) {
+       const div = document.createElement('div');
+       div.textContent = text;
+       return div.innerHTML;
+   }
+
+   // Opcional: probar conexión con la API
+   async function provarConnexio() {
+       try {
+           console.log('🔍 Probando conexión con la API...');
+
+           const response = await fetch(API_BASE_URL + '/api/health');
+           const data = await response.json();
+
+           if (response.ok) {
+               console.log('✅ Conexión con la API exitosa:', data);
+               return true;
+           } else {
+               console.error('❌ Error de la API:', data);
+               return false;
+           }
+
+       } catch (error) {
+           console.error('❌ Error de conexión:', error);
+           mostrarError('No se puede conectar con la API. Verifica que esté ejecutándose en http://localhost:5000');
+           return false;
+       }
+   }
+
+   console.log('✅ JavaScript de integración cargado correctamente');
+
+   // Llama a enviarTexto cuando quieras (por ejemplo, al hacer clic en un botón)
+   window.onload = enviarTexto;
+</script>
+ </head>
+ <body class="" data-gl="{&quot;KeywordsHomeNotInherits&quot;:false}">
+  <form id="XForm" method="post" action="#"></form>
+  <div id="XBody" class="BaseDiv RWidth OEPageXbody OESK_XBody_Default" style="z-index:0">
+   <div class="OESZ OESZ_DivContent OESZG_XBody">
+    <div class="OESZ OESZ_XBodyContent OESZG_XBody OECT OECT_Content OECTAbs">
+     <div id="WE46d3a93811" class="BaseDiv RBoth OEWEHr OESK_WEHrLign_Default" style="z-index:1">
+      <div class="OESZ OESZ_DivContent OESZG_WE46d3a93811">
+       <div class="OESZ OESZ_Deco1 OESZG_WE46d3a93811" style="position:absolute"></div>
+       <div class="OESZ OESZ_Deco2 OESZG_WE46d3a93811" style="position:absolute"></div>
+       <div class="OESZ OESZ_Deco3 OESZG_WE46d3a93811" style="position:absolute"></div>
+      </div>
+     </div>
+     <div id="WE64ecd1de60" class="BaseDiv RBoth OEWELink OESK_WELink_Default" style="z-index:2" onclick="return OE.Navigate.open(event,'index.htm',1)">
+      <div class="OESZ OESZ_DivContent OESZG_WE64ecd1de60">
+       <a class="OESZ OESZ_Link OESZG_WE64ecd1de60 ContentBox" data-cd="PageLink" href="index.htm"><span style="color:rgb(255, 255, 255);font-family:'Montserrat Thin';">Inicio</span></a>
+      </div>
+     </div>
+     <div id="WEb9bda24a45" class="BaseDiv RBoth OEWELink OESK_WELink_Default" style="z-index:3">
+      <div class="OESZ OESZ_DivContent OESZG_WEb9bda24a45">
+       <a class="OESZ OESZ_Link OESZG_WEb9bda24a45 ContentBox" data-cd="PageLink"><span style="font-family:'Montserrat Thin';"><span style="color:rgb(255, 255, 255);">Objeto<b>&nbsp;</b>| <b>Alimentos</b> |&nbsp;</span><span style="color:rgb(255, 255, 255);">Servicio</span></span><br /></a>
+      </div>
+     </div>
+     <div id="WE65269e11ed" class="BaseDiv RNone OEWELinkButton OESK_WELinkButton_Default" style="z-index:5" onclick="return OE.Navigate.open(event,'AlimentosFoto.htm',1)">
+      <div class="OESZ OESZ_DivContent OESZG_WE65269e11ed">
+       <a class="OESZ OESZ_Text OESZG_WE65269e11ed ContentBox" href="AlimentosFoto.htm"><span style="color:rgb(242, 242, 242);">AAAAaaaaaaA</span></a>
+      </div>
+     </div>
+     <div id="WE8160e9d55e" class="BaseDiv RNone OEWELinkButton OESK_WELinkButton_Default" style="z-index:6" onclick="return OE.Navigate.open(event,'Human%20Resources.htm',1)">
+      <div class="OESZ OESZ_DivContent OESZG_WE8160e9d55e">
+       <a class="OESZ OESZ_Text OESZG_WE8160e9d55e ContentBox" href="Human%20Resources.htm"><span style="color:rgb(242, 242, 242);">AAAAaA</span></a>
+      </div>
+     </div>
+     <div id="WE1bcf58d41c" class="BaseDiv RNone OEWELinkButton OESK_WELinkButton_Default" style="z-index:4" onclick="return OE.Navigate.open(event,'ObjetoFoto.htm',1)">
+      <div class="OESZ OESZ_DivContent OESZG_WE1bcf58d41c">
+       <a class="OESZ OESZ_Text OESZG_WE1bcf58d41c ContentBox" href="ObjetoFoto.htm"><span style="color:rgb(242, 242, 242);">AAAAA</span></a>
+      </div>
+     </div>
+     <div id="WEffe0566e6e" class="BaseDiv RBoth OEWELabel OESK_WELabel_Default" style="z-index:7">
+      <div class="OESZ OESZ_DivContent OESZG_WEffe0566e6e">
+       <span class="OESZ OESZ_Text OESZG_WEffe0566e6e ContentBox"><span style="font-family:'Montserrat Thin';font-size:24px;line-height:28px;">Añade información adicional por favor<br /></span></span>
+      </div>
+     </div>
+     <div id="WEaa48710976" class="BaseDiv RBoth OEWEHr OESK_WEHrLign_Default" style="z-index:8">
+      <div class="OESZ OESZ_DivContent OESZG_WEaa48710976">
+       <div class="OESZ OESZ_Deco1 OESZG_WEaa48710976" style="position:absolute"></div>
+       <div class="OESZ OESZ_Deco2 OESZG_WEaa48710976" style="position:absolute"></div>
+       <div class="OESZ OESZ_Deco3 OESZG_WEaa48710976" style="position:absolute"></div>
+      </div>
+     </div>
+     <div id="WE0fd5606598" class="BaseDiv RNone OEWELabel OESK_WELabel_Default" style="z-index:11">
+      <div class="OESZ OESZ_DivContent OESZG_WE0fd5606598">
+       <span class="OESZ OESZ_Text OESZG_WE0fd5606598 ContentBox">Unidades / kg</span>
+      </div>
+     </div>
+     <div id="WEresults" class="BaseDiv RWidth OEWEText OESK_WEText_Default" style="z-index:18">
+      <div class="OESZ OESZ_DivContent OESZG_WEresults">
+       <span class="ContentBox"><br /></span>
+      </div>
+     </div>
+     <div id="WEloading" class="BaseDiv RWidth OEWEText OESK_WEText_Default" style="z-index:19">
+      <div class="OESZ OESZ_DivContent OESZG_WEloading">
+       <span class="ContentBox"><br /></span>
+      </div>
+     </div>
+     <div id="WEuniAlimentos" class="BaseDiv RWidth OEWETextBoxV2 OESK_WETextBox2_Default" style="z-index:10">
+      <div class="OESZ OESZ_DivContent OESZG_WEuniAlimentos">
+       <input name="WEuniAlimentos" type="text" class="OESZ OESZ_TextBox OESZG_WEuniAlimentos OEDynTag0" />
+      </div>
+     </div>
+     <div id="WE90ca469b58" class="BaseDiv RNone OEWELabel OESK_WELabel_Default" style="z-index:12">
+      <div class="OESZ OESZ_DivContent OESZG_WE90ca469b58">
+       <span class="OESZ OESZ_Text OESZG_WE90ca469b58 ContentBox">Material<br /></span>
+      </div>
+     </div>
+     <div id="WEec5897b2f1" class="BaseDiv RNone OEWELinkButton OESK_WELinkButton_Default" style="z-index:9" onclick="return OE.Navigate.open(event,'javascript:enviarTexto()',1)">
+      <div class="OESZ OESZ_DivContent OESZG_WEec5897b2f1">
+       <a class="OESZ OESZ_Text OESZG_WEec5897b2f1 ContentBox" href="javascript:enviarTexto()"><span style="color:rgb(0, 0, 0);font-family:'Montserrat Thin';">Enviar</span></a>
+      </div>
+     </div>
+     <div id="WE874ea3b066" class="BaseDiv RWidth OEWEListBoxV2 OESK_WEListBox2_Default" style="z-index:13">
+      <div class="OESZ OESZ_DivContent OESZG_WE874ea3b066">
+       <select name="WE874ea3b066" class="OESZ OESZ_ListBox OESZG_WE874ea3b066 OEDynTag0">
+        <option value="Madera" class="OESZ OESZ_Options OESZG_WE874ea3b066">Madera</option>
+        <option value="Metal" class="OESZ OESZ_Options OESZG_WE874ea3b066">Metal</option>
+        <option value="Tela" class="OESZ OESZ_Options OESZG_WE874ea3b066">Tela</option>
+        <option value="Plastico" class="OESZ OESZ_Options OESZG_WE874ea3b066" selected="selected">Plástico</option>
+       </select>
+      </div>
+     </div>
+     <div id="WE49fdeeb6e9" class="BaseDiv RNone OEWELabel OESK_WELabel_Default" style="z-index:14">
+      <div class="OESZ OESZ_DivContent OESZG_WE49fdeeb6e9">
+       <span class="OESZ OESZ_Text OESZG_WE49fdeeb6e9 ContentBox">Tamaño<br /></span>
+      </div>
+     </div>
+     <div id="WE1918324c04" class="BaseDiv RWidth OEWEListBoxV2 OESK_WEListBox2_Default" style="z-index:15">
+      <div class="OESZ OESZ_DivContent OESZG_WE1918324c04">
+       <select name="WE1918324c04" class="OESZ OESZ_ListBox OESZG_WE1918324c04 OEDynTag0">
+        <option value="Pequeño" class="OESZ OESZ_Options OESZG_WE1918324c04">Pequeño</option>
+        <option value="Normal" class="OESZ OESZ_Options OESZG_WE1918324c04" selected="selected">Normal</option>
+        <option value="Grande" class="OESZ OESZ_Options OESZG_WE1918324c04">Grande</option>
+       </select>
+      </div>
+     </div>
+     <div id="WE009aa96877" class="BaseDiv RNone OEWELabel OESK_WELabel_Default" style="z-index:16">
+      <div class="OESZ OESZ_DivContent OESZG_WE009aa96877">
+       <span class="OESZ OESZ_Text OESZG_WE009aa96877 ContentBox">Estado<br /></span>
+      </div>
+     </div>
+     <div id="WEe4f6624ba6" class="BaseDiv RWidth OEWEListBoxV2 OESK_WEListBox2_Default" style="z-index:17">
+      <div class="OESZ OESZ_DivContent OESZG_WEe4f6624ba6">
+       <select name="WEe4f6624ba6" class="OESZ OESZ_ListBox OESZG_WEe4f6624ba6 OEDynTag0">
+        <option value="0" class="OESZ OESZ_Options OESZG_WEe4f6624ba6">Como nuevo</option>
+        <option value="1" class="OESZ OESZ_Options OESZG_WEe4f6624ba6">Con marcas de uso</option>
+        <option value="2" class="OESZ OESZ_Options OESZG_WEe4f6624ba6">Ligeramente dañado</option>
+        <option value="3" class="OESZ OESZ_Options OESZG_WEe4f6624ba6">Necesita reparación</option>
+        <option value="4" class="OESZ OESZ_Options OESZG_WEe4f6624ba6">Completamente dañado</option>
+       </select>
+      </div>
+     </div>
+    </div>
+    <div class="OESZ OESZ_XBodyFooter OESZG_XBody OECT OECT_Footer OECTAbs"></div>
+   </div>
+  </div>
+ </body>
+</html>

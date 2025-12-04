@@ -1,0 +1,365 @@
+Anguila
+Habas
+Sirope de agave
+Cerveza sin alcohol
+Piña
+Zumo de piña
+Manzana
+Vinagre de sidra de manzana
+Zumo de manzana
+Albaricoques
+Alcachofas
+Berenjena
+Ostras
+Aguacate
+Levadura en polvo
+Tocino
+Vinagre balsámico
+Plátanos
+Salsa barbacoa
+Ajo silvestre
+Albahaca
+Lechuga
+Frutos rojos variados
+Cerveza
+Peras
+Zumo de pera
+Almendras amargas
+Hojaldre (grasas vegetales)
+Pez azul
+Arándanos
+Coliflor
+Ajedrea
+Brie
+Brioche
+Brócoli
+Moras
+Pan
+Trigo sarraceno
+Harina de trigo sarraceno
+Judías 
+Mantequilla
+Mantequilla (clarificada)
+Anacardos
+Champán
+Cheddar
+Tomates cherry
+Semillas de chía
+Chile en polvo
+Chorizo
+Chapata
+Coñac
+Copos de maíz
+Cuscús
+Zumo de arándanos
+Croissant
+Curry
+Pasta de curry
+Dátiles
+Bacalao
+Tomates enlatados
+Chocolate negro
+Huevos de gallina
+Yema de huevo
+Clara de huevo
+Queso emmental
+Pato
+Guisantes
+Fresas
+Crema de cacahuete
+Cacahuetes
+Vinagre
+Higos
+Pescado blanco
+Canónigos
+Queso feta (de leche de vaca)
+Pescado
+Palitos de pescado
+Carne
+Salchicha de carne
+Lenguado
+Foie gras
+Queso crema
+Zumo de frutas
+Cebolletas
+Ganso
+Camarones
+Gelatina
+Verduras
+Caldo de verduras
+Cebada
+Tomates secos
+Especias
+Gluten (trigo)
+Ñoquis (patata)
+Dorada
+Granada
+Pomelo
+Zumo de pomelo
+Judías verdes
+Espárragos verdes
+Té verde
+Pepino
+Avena
+Avellanas
+Frambuesas
+Miel
+Pechuga de pollo
+Caldo de pollo
+Carne de pollo
+Langosta
+Jengibre
+Jalapeño
+Yogur natural
+Granos de café
+Manteca de cacao
+Caqui
+Tuna
+Ternera
+Ternera (Filete)
+Ternera (Carne Picada)
+Ternera (Cuello Asado)
+Ternera (Madrilla)
+Ternera (Chuleta)
+Ternera (Escalope)
+Ternera (Paletilla Asada)
+Ternera (Bistec)
+Carne de Conejo
+Alcaparras
+Zanahorias
+Patatas
+Queso Semiduro
+Castañas
+Caviar
+Ketchup
+Garbanzos
+Harina de Garbanzos
+Cerezas
+Kiwi
+Ajo
+Apio Nabo
+Repollo
+Coco Leche
+Coco
+Aceite de coco
+Coco rallado
+Mermelada
+Cilantro
+Té de hierbas
+Comino
+Calabaza
+Semillas de calabaza
+Cúrcuma
+Salmón
+Cordero
+Cangrejo de río
+Puerro
+Lima
+Hojas de lima
+Limonada
+Lentejas
+Hojas de laurel
+Diente de león
+Maíz
+Mandarinas
+Zumo de mandarina
+Almendras
+Mango
+Acelgas
+Zumo de mango
+Mayonesa
+Mariscos
+Sal marina
+Harina sin gluten
+Harina multigrano
+Melones
+Leche en polvo
+Chocolate con leche
+Agua mineral con gas
+Agua mineral sin gas
+Menta
+Suero de leche
+Mozzarella
+Mejillones
+Bicarbonato
+Nectarinas
+Pasta
+Frutos secos
+Fruta
+Aceitunas
+Aceite de oliva
+Naranja
+Zumo de naranja
+Orégano
+Aceite de palma
+Pan rallado
+Papaya
+Pimentón 
+Pimentón en polvo
+Pimentón en polvo (dulce)
+Parmesano
+Perejil
+Pimienta
+Melocotones
+Zumo de melocotón
+Aceite vegetal
+Ciruelas pasas
+Mermelada de ciruela
+Champiñones
+Piñones
+Pistachos
+Patatas fritas
+Quinoa
+Membrillo
+Salmón ahumado
+Jamón ahumado
+Red Bull
+Venado
+Arroz
+Bebida de arroz
+Vinagre de arroz
+Harina de arroz
+Vino de arroz
+Caldo de res
+Arroz para risotto
+Jamón crudo
+Pasas
+Remolacha
+Rúcula
+Azafrán
+Nata doble
+Nata semidesnatada
+Nata entera desnatada
+Salami
+Sal
+Anchoas
+Comino negro
+Té negro
+Cerdo (pechuga)
+Cerdo (filete)
+Cerdo (carne picada)
+Cerdo (chuleta)
+Merluza
+Mostaza
+Aceite de girasol
+Espaguetis
+Espinacas
+Almidón de maíz
+Regaliz
+Boniato
+Atún
+Calamar
+Tinta de calamar
+Tofu
+Tomates
+Concentrado de tomate
+Salsa de tomate
+Uvas
+Zumo de uva
+Levadura seca
+Trufa
+Pavo
+Huevo entero
+Arroz integral
+Judías blancas
+Pasta de wasabi
+Sandía
+Queso fresco
+Frijoles blancos
+Chocolate blanco
+Espárragos blancos
+Té blanco
+Vinagre de vino blanco
+Trigo
+Harina de trigo
+Vermut
+Setas silvestres
+Lubina
+Carne de cabra
+Queso de cabra
+Leche de cabra
+Canela
+Limones
+Calabacín
+Pan de Azúcar
+Ciruelas
+Cebollas
+Pan Bimbo
+Mesa madera
+Silla
+Mesas de cristal
+Sillones
+Sofá
+Chaqueta
+Chaquetas de forro polar 
+Vaqueros
+Suéteres de punto
+Camisetas
+Zapatos
+Toallas de algodón
+Bicicleta
+Portátil
+Ordenador de escritorio
+Pantalla de ordenador
+Televisión
+Teléfono inteligente
+Aspiradora
+Pequeños electrodomésticos
+Pequeños artículos para el hogar
+Vajilla de cerámica
+Vasos
+Libros (tapa dura y rústica)
+carrito de bebé
+Detergente para ropa
+Suavizante de ropa
+Lejía (Lavandina)
+Lavavajillas manual (Friegaplatos)
+Limpiador multiusos
+Friegasuelos
+Bolsas de basura grandes
+Papel higiénico
+Rollos de papel de cocina
+Bayetas y paños
+Estropajos
+Guantes de limpieza
+Limpiacristales
+Desengrasante de cocina
+Jabón de manos
+Martillo
+Juego de destornilladores (planos y estrella)
+Alicates universales
+Llave inglesa ajustable
+Cinta métrica (flexómetro)
+Cúter
+Sierra de mano o serrucho
+Juego de llaves Allen
+Papel de lija (varios granos)
+Linterna
+Cinta aislante o americana
+Guantes de trabajo
+Brochas y pinceles
+Plato
+Vaso
+Papel
+Cuchillo
+Tenedor
+Cuchara
+Juguete
+Compresas
+Preservativos
+Tampones
+Mascarilla
+Escoba 
+Fregona
+Cubo limpieza
+Libretas
+Boligrafo
+Lapiz
+Pila/Batería
+Manta
+Sabana
+Cargador
+Lavadora
+Nevera
+Microondas
+Pizza

@@ -2,6 +2,46 @@ import pandas as pd
 import difflib
 import os
 
+
+
+def lookup_food(producto: str, unidades: float):
+    # === 1. Cargar archivo Excel (segunda fila como cabecera) ===
+    base_dir = os.path.dirname(__file__)
+    excel_path = os.path.join(base_dir, "database.xlsx")
+    df = pd.read_excel(excel_path, header=1)
+    df.columns = df.columns.str.strip()  # limpiar espacios
+    df_food = df[["ES", "CO2"]].dropna(subset=["ingredientes"])
+
+    total_ahorro = 0
+    total_coste_destruccion = 0
+    total_emisiones_residuos = 0
+    coste_por_kg = 0.30       # € por kg (coste de destrucción)
+    emision_por_kg = 0.5      # kg CO₂ por kg eliminado
+
+    ingrediente_input = producto 
+    cantidad_kg = unidades
+    match = df_food[df_food["ES"].str.lower() == ingrediente_input]
+    if match.empty:
+                todos = df_food["ingredientes"].str.lower().tolist()
+                similares = difflib.get_close_matches(ingrediente_input, todos, n=1, cutoff=0.6)
+                if similares:
+                    sugerencia = similares[0]
+                    match = df_food[df_food["ingredientes"].str.lower() == sugerencia]
+                    else:
+                        continue
+                else:
+                    continue
+    co2_por_kg = match.iloc[0]["Carbon savings per kg in kg"]
+    ahorro_co2 = co2_por_kg * cantidad_kg
+    coste_destruccion = cantidad_kg * coste_por_kg
+    emisiones_residuos = cantidad_kg * emision_por_kg
+    total_ahorro += ahorro
+    total_coste_destruccion += coste_destruccion
+    total_emisiones_residuos += emisiones_residuos
+    print(f"✅ {ingrediente_input.capitalize()}: {cantidad_kg} kg → {ahorro:.2f} kg CO₂ ahorrados | 💥 Coste de destrucción: {coste_destruccion:.2f} € | 🗑️ Emisiones eliminación: {emisiones_residuos:.2f} kg CO₂")
+    balance_neto = total_ahorro + total_emisiones_residuos
+    return (ahorro_co2, coste_destruccion, emisiones_residuos)
+
 def main():
     # === 1. Cargar archivo Excel (segunda fila como cabecera) ===
     base_dir = os.path.dirname(__file__)

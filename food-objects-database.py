@@ -5,36 +5,73 @@ import os
 
 
 def lookup_food(producto: str, unidades: float):
-    # === 1. Cargar archivo Excel (segunda fila como cabecera) ===
     base_dir = os.path.dirname(__file__)
     excel_path = os.path.join(base_dir, "database.xlsx")
     df = pd.read_excel(excel_path, header=1)
-    df.columns = df.columns.str.strip()  # limpiar espacios
-    df_food = df[["ES", "CO2"]].dropna(subset=["ingredientes"])
+    df.columns = df.columns.str.strip()
+    df_food = df[["ES", "CO2"]].dropna(subset=["ES"])
 
-    coste_por_kg = 0.30       # € por kg (coste de destrucción)
-    emision_por_kg = 0.5      # kg CO₂ por kg eliminado
+    coste_por_kg = 0.30
+    emision_por_kg = 0.5
 
-    ingrediente_input = producto 
+    ingrediente_input = producto.lower()
     cantidad_kg = unidades
+
     match = df_food[df_food["ES"].str.lower() == ingrediente_input]
+
     if match.empty:
-                todos = df_food["ingredientes"].str.lower().tolist()
-                similares = difflib.get_close_matches(ingrediente_input, todos, n=1, cutoff=0.6)
-                if similares:
-                    sugerencia = similares[0]
-                    match = df_food[df_food["ingredientes"].str.lower() == sugerencia]
-                    else:
-                        continue
-                else:
-                    continue
-    co2_por_kg = match.iloc[0]["Carbon savings per kg in kg"]
+        todos = df_food["ES"].str.lower().tolist()
+        similares = difflib.get_close_matches(ingrediente_input, todos, n=1, cutoff=0.6)
+
+        if similares:
+            sugerencia = similares[0]
+            match = df_food[df_food["ES"].str.lower() == sugerencia]
+        else:
+            match = df_food.iloc[[0]]
+
+    co2_por_kg = match.iloc[0]["CO2"]
     ahorro_co2 = co2_por_kg * cantidad_kg
     coste_destruccion = cantidad_kg * coste_por_kg
     emisiones_residuos = cantidad_kg * emision_por_kg
-    print(f"✅ {ingrediente_input.capitalize()}: {cantidad_kg} kg → {ahorro:.2f} kg CO₂ ahorrados | 💥 Coste de destrucción: {coste_destruccion:.2f} € | 🗑️ Emisiones eliminación: {emisiones_residuos:.2f} kg CO₂")
-    balance_neto = total_ahorro + total_emisiones_residuos
+
+    print(f"✅ {producto.capitalize()}: {cantidad_kg} kg → {ahorro_co2:.2f} kg CO₂ ahorrados | 💥 Coste de destrucción: {coste_destruccion:.2f} € | 🗑️ Emisiones eliminación: {emisiones_residuos:.2f} kg CO₂")
     return (ahorro_co2, coste_destruccion, emisiones_residuos)
+
+
+
+def lookup_products(producto: str, unidades: float):
+    base_dir = os.path.dirname(__file__)
+    excel_path = os.path.join(base_dir, "database.xlsx")
+    df = pd.read_excel(excel_path, header=1)
+    df.columns = df.columns.str.strip()
+    df_prod = df[["ES", "CO2"]].dropna(subset=["ES"])
+
+    coste_por_unidad = 0.40
+    emision_por_unidad = 0.9
+
+    ingrediente_input = producto.lower()
+    cantidad_unidades = unidades
+
+    match = df_prod[df_prod["ES"].str.lower() == ingrediente_input]
+
+    if match.empty:
+        todos = df_prod["ES"].str.lower().tolist()
+        similares = difflib.get_close_matches(ingrediente_input, todos, n=1, cutoff=0.6)
+
+        if similares:
+            sugerencia = similares[0]
+            match = df_prod[df_prod["ES"].str.lower() == sugerencia]
+        else:
+            match = df_prod.iloc[[0]]
+
+    co2_por_unidad = match.iloc[0]["CO2"]
+    ahorro_co2 = co2_por_unidad * cantidad_unidades
+    coste_destruccion = cantidad_unidades * coste_por_unidad
+    emisiones_residuos = cantidad_unidades * emision_por_unidad
+
+    print(f"✅ {producto.capitalize()}: {cantidad_unidades} unidades → {ahorro_co2:.2f} kg CO₂ ahorrados | 💥 Coste de destrucción: {coste_destruccion:.2f} € | 🗑️ Emisiones eliminación: {emisiones_residuos:.2f} kg CO₂")
+    return (ahorro_co2, coste_destruccion, emisiones_residuos)
+
 
 def main():
     # === 1. Cargar archivo Excel (segunda fila como cabecera) ===
